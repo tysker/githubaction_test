@@ -7,6 +7,5 @@ public class Main {
         System.out.println("Docker Deploy Is Working!!!!!!!");
         System.out.println("*******************************");
         System.out.println("*******************************");
-        System.out.println("*******************************");
     }
 }
