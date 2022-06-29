@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ci-demo1</groupId>
-    <artifactId>ci-demo1</artifactId>
+    <groupId>dk.oertel</groupId>
+    <artifactId>githubaction_test</artifactId>
     <version>1.0.1</version>
     <packaging>war</packaging>
 
-    <name>ci-demo1</name>
+    <name>githubaction_test</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -15,7 +15,9 @@
         
         <!-- TODO: Add the URL to your own tomcat server. Used to deploy your WAR-file -->
         <!-- IMPORTANT-2: Observe we are NOT using /manager/html but /manager/text for script uploads --> 
-        <remote.server>http://159.89.16.157:8081/manager/text</remote.server>
+        <remote.server>http://157.230.116.82:8081/manager/text</remote.server>
+        <remote.user>tysker</remote.user>
+        <remote.password>tysker3085</remote.password>
         
     </properties>
     
