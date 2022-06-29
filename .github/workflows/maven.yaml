@@ -41,11 +41,11 @@ jobs:
         run: mvn test
 
       - name: Maven deploy
-        if: ${{ github.ref == 'ref/heads/main' }}
+#        if: ${{ github.ref == 'ref/heads/main' }}
         run: mvn -Dremote.user=${{ secrets.REMOTE_USER }} -Dremote.password=${{ secrets.REMOTE_PW }} tomcat7:deploy
 
       - name: Build and push Docker image
-        if: ${{ github.ref == 'ref/heads/docker' }}
+#        if: ${{ github.ref == 'ref/heads/docker' }}
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           image: tyskerdocker/githubaction_deploytest
