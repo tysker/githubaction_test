@@ -1,1 +1,3 @@
+## GitHub Actions
+
 Ultra simple Java Project meant for a Github Actions introduction
