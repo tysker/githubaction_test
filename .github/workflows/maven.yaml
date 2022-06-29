@@ -1,28 +1,28 @@
-name: Java CI
+name: Deployment
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: deployment
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11'
-          distribution: 'adopt'
-      - name: mysql
-        uses: mirromutth/mysql-action@v1.1
-        with:
-          mysql version: '8.0'
-          mysql database: 'startcode_test'
-          mysql user: 'dev'
-          mysql password: 'ax2'
-      - name: Maven verify
-        run: mvn verify
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots verify
-      - name: Maven deploy
-        run: mvn -Dremote.user=${{ secrets.REMOTE_USER }} -Dremote.password=${{ secrets.REMOTE_PW }} tomcat7:deploy
+                - name: Set up JDK 11
+                uses: actions/setup-java@v2
+                with:
+                  java-version: '11'
+                  distribution: 'adopt'
+                - name: mysql
+                  uses: mirromutth/mysql-action@v1.1
+                  with:
+                    mysql version: '8.0'
+                    mysql database: 'startcode_test'
+                    mysql user: ${{ secrets.DB_USER }}
+                    mysql password: ${{ secrets.DB_PASSWORD }}
+                - name: Maven verify
+                  run: mvn verify
+                - name: Build with Maven
+                  run: mvn --batch-mode --update-snapshots verify
+                - name: Maven deploy
+                  run: mvn -Dremote.user=${{ secrets.REMOTE_USER }} -Dremote.password=${{ secrets.REMOTE_PW }} tomcat7:deploy
